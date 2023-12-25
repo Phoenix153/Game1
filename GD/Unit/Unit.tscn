@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4tm8nywsdifk"]
+
+[ext_resource type="Script" path="res://Unit/Unit.gd" id="1_a2nie"]
+[ext_resource type="Texture2D" uid="uid://cf4dok83t6fro" path="res://Character/Puny-Characters/Archer-Green.png" id="1_blywl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntdqj"]
+size = Vector2(71, 66)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ne4pd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.286275, 0.8, 0.8, 1)
+border_blend = true
+
+[node name="Unit" type="CharacterBody2D"]
+script = ExtResource("1_a2nie")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 3)
+shape = SubResource("RectangleShape2D_ntdqj")
+
+[node name="Archer-green" type="Sprite2D" parent="."]
+position = Vector2(6.10352e-05, 3.05176e-05)
+scale = Vector2(5, 5)
+texture = ExtResource("1_blywl")
+hframes = 24
+vframes = 8
+
+[node name="Box" type="Panel" parent="."]
+offset_left = -36.0
+offset_top = -56.0
+offset_right = 36.0
+offset_bottom = 37.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ne4pd")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
